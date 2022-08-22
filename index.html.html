@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{
+            background-image: url(bg\ 2.jpg);
+            background-attachment: fixed;
+            background-size: 100% 200%;
+            
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTRATION FORM</title>
+    
+</head>
+<body>
+    <font size="5">
+        <form method="post" name="google-sheet">
+    <h1 align="center">REGISTRATION FORM</h1>
+    <table align="center">
+        <tr> <td> 
+           <label for="firstname"> First name <td><input type="text"id="firstname" name="First name"></label>
+                </td></tr>
+        <tr> <td>
+            <label for="lastname"> Last name <td><input type="text" id="lastname" name="Last name"></label>
+                 </td></tr>
+         <tr> <td>
+            <label for="mobile no"> Mobile no.<td> <input type="tel"id="mobile no" name="Mobile no."></label>
+                 </td></tr>
+        <tr> <td>
+            <label for="city">City <td><input type="text"id="city" name="City"></label>
+                 </td></tr>
+        <tr> <td>
+            <label for="state">State <td><input type="text"id="state" name="State"></label>
+                 </td></tr>
+        <tr> <td>
+            Gender <td><input type="radio" name="gender"id="male">
+                <label for="male"> Male</label> 
+                      <input type="radio"name="gender"id="female" >
+               <label for="female"> Female </label>
+                      <input type="radio" name="gender" id="other">
+                <label for="other">Other</label>
+                  </td></tr>
+         <tr><td align="center" colspan="2"><input type="submit" value="Submit"></td></tr>
+        </form>
+        </font>
+        <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbyDxv3Myfg0oZM-MOL4TYi6CCOEDsGOy1LkLTvGuONi5u4nwkloSGPWNMeDxyDInBFb/exec'
+            const form = document.forms['google-sheet']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
+          
+</body>
+</html>
